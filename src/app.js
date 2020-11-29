@@ -5,6 +5,8 @@ const geocode = require('../src/utils/geocode')
 const forecast = require('../src/utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000
+
 const publicdir = path.join(__dirname , '../public')
 const viewpath = path.join(__dirname , '../templets/views')
 const partialspath = path.join(__dirname , '../templets/partials')
@@ -88,6 +90,6 @@ app.get('*', (req,res) => {
         errormessage: 'Page not found'
     })
 })
-app.listen(3000, () => {
-    console.log('server is up on port 3000..')
+app.listen(port , () => {
+    console.log('server is up on port ' + port)
 })
